@@ -1,36 +1,185 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Teacher Form</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Registration</title>
+
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body{
+            min-height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background: linear-gradient(135deg,#0f172a,#2563eb,#06b6d4);
+            padding:40px;
+            overflow:auto;
+        }
+
+        /* Animated Background */
+        .circle{
+            position:absolute;
+            border-radius:50%;
+            background: rgba(255,255,255,0.08);
+            animation: float 7s infinite ease-in-out;
+        }
+
+        .circle1{
+            width:240px;
+            height:240px;
+            top:40px;
+            left:60px;
+        }
+
+        .circle2{
+            width:320px;
+            height:320px;
+            bottom:20px;
+            right:70px;
+            animation-delay:2s;
+        }
+
+        @keyframes float{
+            0%{
+                transform:translateY(0px);
+            }
+            50%{
+                transform:translateY(-20px);
+            }
+            100%{
+                transform:translateY(0px);
+            }
+        }
+
+        .container{
+            width:500px;
+            padding:40px;
+            border-radius:25px;
+            background: rgba(255,255,255,0.12);
+            backdrop-filter: blur(12px);
+            box-shadow:0 8px 30px rgba(0,0,0,0.35);
+            z-index:10;
+        }
+
+        h1{
+            text-align:center;
+            color:white;
+            margin-bottom:30px;
+            font-size:36px;
+        }
+
+        form{
+            display:flex;
+            flex-direction:column;
+        }
+
+        input{
+            margin:10px 0;
+            padding:15px;
+            border:none;
+            border-radius:14px;
+            outline:none;
+            font-size:16px;
+            background: rgba(255,255,255,0.18);
+            color:white;
+            transition:0.3s;
+        }
+
+        input::placeholder{
+            color:#dbeafe;
+        }
+
+        input:focus{
+            background: rgba(255,255,255,0.28);
+            transform:scale(1.02);
+            box-shadow:0 0 12px rgba(255,255,255,0.3);
+        }
+
+        button{
+            margin-top:20px;
+            padding:16px;
+            border:none;
+            border-radius:15px;
+            font-size:18px;
+            font-weight:bold;
+            cursor:pointer;
+            color:white;
+            background: linear-gradient(45deg,#06b6d4,#3b82f6);
+            transition:0.4s;
+            box-shadow:0 5px 15px rgba(0,0,0,0.25);
+        }
+
+        button:hover{
+            transform:translateY(-5px) scale(1.03);
+            background: linear-gradient(45deg,#3b82f6,#8b5cf6);
+            box-shadow:0 10px 20px rgba(0,0,0,0.35);
+        }
+
+        .footer{
+            margin-top:20px;
+            text-align:center;
+            color:#dbeafe;
+            font-size:14px;
+        }
+
+    </style>
 </head>
+
 <body>
 
-<div class="container">
+    <!-- Background Animation -->
+    <div class="circle circle1"></div>
+    <div class="circle circle2"></div>
 
-<h1>Teacher Registration</h1>
+    <div class="container">
 
-<form action="/add_teacher" method="POST">
+        <h1>📘 Teacher Registration</h1>
 
-<input type="number" name="id" placeholder="Person ID" required>
-<input type="text" name="name" placeholder="Name" required>
-<input type="date" name="dob" required>
-<input type="email" name="email" placeholder="Email" required>
-<input type="text" name="phone" placeholder="Phone" required>
-<input type="text" name="city" placeholder="City" required>
-<input type="text" name="zip_code" placeholder="Zip Code" required>
-<input type="text" name="street" placeholder="Street" required>
+        <form action="/add_teacher" method="POST">
 
-<input type="number" name="t_ssn" placeholder="Teacher SSN" required>
-<input type="number" name="salary" placeholder="Salary" required>
-<input type="text" name="position" placeholder="Position" required>
+            <input type="number" name="id" placeholder="Person ID" required>
 
-<button type="submit">Add Teacher</button>
+            <input type="text" name="name" placeholder="Full Name" required>
 
-</form>
+            <input type="date" name="dob" required>
 
-</div>
+            <input type="email" name="email" placeholder="Email Address" required>
+
+            <input type="text" name="phone" placeholder="Phone Number" required>
+
+            <input type="text" name="city" placeholder="City" required>
+
+            <input type="text" name="zip_code" placeholder="Zip Code" required>
+
+            <input type="text" name="street" placeholder="Street Address" required>
+
+            <input type="number" name="t_ssn" placeholder="Teacher SSN" required>
+
+            <input type="number" name="salary" placeholder="Salary" required>
+
+            <input type="text" name="position" placeholder="Teacher Position" required>
+
+            <button type="submit">
+                🚀 Add Teacher
+            </button>
+
+        </form>
+
+        <div class="footer">
+            University Management System © 2026
+        </div>
+
+    </div>
 
 </body>
 </html>
-
