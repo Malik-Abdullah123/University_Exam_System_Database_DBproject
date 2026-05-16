@@ -1,29 +1,151 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>University Management System</title>
+
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body{
+            height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background: linear-gradient(135deg,#0f172a,#1e3a8a,#2563eb);
+            overflow:hidden;
+        }
+
+        /* Animated circles */
+        .circle{
+            position:absolute;
+            border-radius:50%;
+            background: rgba(255,255,255,0.08);
+            animation: float 8s infinite ease-in-out;
+        }
+
+        .circle1{
+            width:220px;
+            height:220px;
+            top:50px;
+            left:80px;
+        }
+
+        .circle2{
+            width:300px;
+            height:300px;
+            bottom:40px;
+            right:70px;
+            animation-delay:2s;
+        }
+
+        @keyframes float{
+            0%{
+                transform:translateY(0px);
+            }
+            50%{
+                transform:translateY(-25px);
+            }
+            100%{
+                transform:translateY(0px);
+            }
+        }
+
+        .container{
+            width:420px;
+            padding:45px;
+            border-radius:25px;
+            background: rgba(255,255,255,0.12);
+            backdrop-filter: blur(12px);
+            box-shadow:0 8px 32px rgba(0,0,0,0.3);
+            text-align:center;
+            color:white;
+            z-index:10;
+        }
+
+        .container h1{
+            font-size:38px;
+            margin-bottom:15px;
+            letter-spacing:1px;
+        }
+
+        .container p{
+            color:#dbeafe;
+            margin-bottom:35px;
+            font-size:16px;
+        }
+
+        .btn{
+            width:100%;
+            padding:16px;
+            margin:12px 0;
+            border:none;
+            border-radius:15px;
+            font-size:18px;
+            font-weight:bold;
+            cursor:pointer;
+            transition:0.4s;
+            color:white;
+            background: linear-gradient(45deg,#06b6d4,#3b82f6);
+            box-shadow:0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn:hover{
+            transform:translateY(-5px) scale(1.03);
+            background: linear-gradient(45deg,#3b82f6,#8b5cf6);
+            box-shadow:0 8px 20px rgba(0,0,0,0.35);
+        }
+
+        .footer{
+            margin-top:25px;
+            font-size:14px;
+            color:#cbd5e1;
+        }
+
+    </style>
 </head>
+
 <body>
 
-<div class="container">
+    <!-- Background animation -->
+    <div class="circle circle1"></div>
+    <div class="circle circle2"></div>
 
-    <h1>University Management System</h1>
+    <div class="container">
 
-    <a href="/student">
-        <button>Student Form</button>
-    </a>
+        <h1>University Management System</h1>
 
-    <a href="/teacher">
-        <button>Teacher Form</button>
-    </a>
+        <p>
+            Manage Students, Teachers, and Instructors
+            with a beautiful modern dashboard.
+        </p>
 
-    <a href="/instructor">
-        <button>Instructor Form</button>
-    </a>
+        <a href="/student">
+            <button class="btn">🎓 Student Form</button>
+        </a>
 
-</div>
+        <a href="/teacher">
+            <button class="btn">📘 Teacher Form</button>
+        </a>
 
+        <a href="/instructor">
+            <button class="btn">👨‍🏫 Instructor Form</button>
+        </a>
+
+        <div class="footer">
+            Developed by Abdullah 🚀
+        </div>
+
+    </div>
 
 </body>
 </html>
